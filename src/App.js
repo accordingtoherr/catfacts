@@ -7,13 +7,13 @@ import './App.css'
 
 const App = () => {
   const [cat, setCats] = useState([]);
-  // const [search, setSearch] = useState('');
-  // const [query, setQuery] = useState('dogs');
+ const [search, setSearch] = useState('');
+   const [query, setQuery] = useState("");
   
 
   useEffect(() => {
     getCatFact();
-  }, [])
+  }, [query])
 
   const getCatFact = async () => {
     const response = await fetch(`https://cat-fact.herokuapp.com/facts`)
@@ -27,25 +27,24 @@ const App = () => {
   }
 
 
-//   const updateSearch = e => {
-// setSearch(e.target.value);
-// console.log(search);
-//   };
+   const updateSearch = e => {
+ setSearch(e.target.value);
+ console.log(search);
+  };
 
-//   const getSearch = e => {
-// e.preventDefault();
-// setQuery(search);
+   const getSearch = e => {
+ e.preventDefault();
+ setQuery(search);
 
-//   }
+  }
 
   return (
     <div className="App">
       <h1 className="header">
        Cat Facts
       </h1>
-
-      <form className="searchform">
-        <input type="text" className="searchbar"></input>
+      <form className="searchform" onSubmit={getSearch}>
+      <input type="text" className="searchbar" value={search} onChange={updateSearch}></input>
         <button type="submit" className="button">Search</button>
       </form>
       {cat.map(facts=> (
