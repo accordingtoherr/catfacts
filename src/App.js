@@ -8,7 +8,7 @@ import './App.css'
 const App = () => {
   const [cat, setCats] = useState([]);
  const [search, setSearch] = useState('');
-   const [query, setQuery] = useState("");
+   const [query, setQuery] = useState("water");
   
 
   useEffect(() => {
@@ -39,20 +39,19 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      <h1 className="header">
-       Cat Facts
-      </h1>
-      <form className="searchform" onSubmit={getSearch}>
+   <div className="App">
+      <h1>Cat facts</h1>
+      <div className="facts">
+      {/* <form className="searchform" onSubmit={getSearch}>
       <input type="text" className="searchbar" value={search} onChange={updateSearch}></input>
-        <button type="submit" className="button">Search</button>
-      </form>
+        {/* <button type="submit" className="button">Search</button> */}
+      {/* </form> */} 
       {cat.map(facts=> (
    <Cats facts={facts.text} /> 
  ))}
        
     
-  
+  </div>
    </div>
 
   );

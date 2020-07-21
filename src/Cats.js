@@ -8,7 +8,8 @@ const Cats =  ({facts})=>{
     return(
 
   <div className="items">     
-<h1 className="subtitle">{facts}</h1>
+  
+<h2 className="subtitle">{facts}</h2>
 </div>
 
     );
